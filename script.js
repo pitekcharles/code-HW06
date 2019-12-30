@@ -17,8 +17,8 @@ function searchEnter() {
 function jumboPop() {
     $("#tempCurrent").text("Temperature: " + temperature + " F");
     $("#locationCurrent").text(locationCurrent + "(" + date + ")");
-    $("#humidCurrent").text("Humidity: " + humidity);
-    $("#windCurrent").text("Wind Speed: " + wind);
+    $("#humidCurrent").text("Humidity: " + humidity + " %");
+    $("#windCurrent").text("Wind Speed: " + wind + " MPH");
     $("#UVCurrent").text("UV Index: " + UV);
 }
 
@@ -59,9 +59,10 @@ function pullCityInfo(){
         method: "GET"
     }).then(function(response){
         console.log(response);
-        console.log(response.main.temp);
         temperature = ((response.main.temp)-273.15)*9/5 +32;
-        console.log(temperature);
+        temperature = temperature.toFixed(2);
+        humidity = response.main.humidity;
+        wind = response.wind.speed;
         jumboPop();
     })
 }
