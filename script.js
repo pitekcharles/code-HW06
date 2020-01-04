@@ -125,6 +125,7 @@ function pullCityInfo() {
 
 // Function populates info for 5 day forcast
 function pop5Day () {
+    $(".wrapper5day").empty();
     for(var i=0; i < temp5day.length; i++){
         var colWrap = $("<div>").attr({"class": "col-md-2"});
         var card = $("<div>").attr({"class": "card", "style":"width: 18rem;"});
