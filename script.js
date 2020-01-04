@@ -104,31 +104,42 @@ function pullCityInfo() {
                 url: queryURL3,
                 method: "GET"
             }).then(function(response){
-                console.log(response);
                 for (var i = 0; i < 5; i++){
                     temp5day[i] =(((response.list[4+(i*8)].main.temp) - 273.15) * 9 / 5 + 32).toFixed(2);
-                    console.log(temp5day);
                     var dateTemp = response.list[4+(i*8)].dt_txt;
                     dateTemp = dateTemp.split(" ");
                     date5day[i] = dateTemp[0];
-                    console.log(date5day);
                     humidity5day[i] = response.list[4+(i*8)].main.humidity;
-                    console.log(humidity5day);
                 }
                
+                pop5Day();
             })
         })
     })
 
 }
 
-// Function pulls infor for 5 day forcast
-function pull5Day () {
-
+// Function populates info for 5 day forcast
+function pop5Day () {
+    for(var i=0; i < temp5day.length; i++){
+        var colWrap = $("<div>").attr({"class": "col-md-2"});
+        var card = $("<div>").attr({"class": "card", "style":"width: 18rem;"});
+        var cardbody = $("<div>").attr({"class":"card-body"}); 
+        var cardtitle = $("<h5>").attr({"class": "card-title"});
+        var cardTemp = $("<p>").attr({'class': "card-text"});
+        var cardHumidity = $("<p>").attr({'class': "card-text"});
+        $(".wrapper5day").append(colWrap);
+        cardTemp.text("Temperature: " + temp5day[i] + " F");
+        cardHumidity.text("Humidity: " + humidity5day[i] + " %");
+        cardtitle.text(date5day[i]);
+        colWrap.append(card);
+        card.append(cardbody);
+        cardbody.append(cardtitle);
+        cardbody.append(cardTemp);
+        cardbody.append(cardHumidity);
+    }
 }
 
-//Function Call outs
-// jumboPop();
 sidePop();
 
 $("#sideBar-wrapper").on("click", "button", sideClick);
