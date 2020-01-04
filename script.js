@@ -51,6 +51,8 @@ function sideClick(event) {
     // console.log(this);
     cityAry.push($("#cityInput").val());
     sidePop();
+    locationCurrent = $("#cityInput").val();
+    pullCityInfo();
 
 }
 
@@ -63,6 +65,7 @@ function sideButtonClick(event) {
     // console.log(UV)
     // pullUVInfo();
     // jumboPop();
+    // pop5Day();
 }
 
 //function to make ajax calls for a city
@@ -113,6 +116,7 @@ function pullCityInfo() {
                 }
                
                 pop5Day();
+                console.log("check");
             })
         })
     })
