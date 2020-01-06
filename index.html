@@ -27,14 +27,13 @@
             <a class="navbar-brand" href="#">Weather Dashboard</a>
         </nav>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="row">
                     <div class="input-group mb-3" id="sideBar-wrapper">
                         <input type="text" class="form-control" placeholder="City" aria-label="City"
                             aria-describedby="button-addon2" id="cityInput">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2 addCity">Add
-                                City</button>
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2 addCity">Add</button>
                         </div>
                     </div>
                 </div>
@@ -42,9 +41,9 @@
                     <div class="btn-group-vertical" id="sidebar"></div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <div class="row">
-                    <div class="jumbotron">
+                    <div class="jumbotron" style="width:100%">
                         <h1 class="display-4" id="locationCurrent">Current City (date)</h1>
                         <hr class="my-4">
                         <p id="tempCurrent">Temperature:</p>
@@ -56,9 +55,7 @@
                 <div class="row">
                     <h2>5-Day Forecast:</h2>
                 </div>
-                <div class="row">
-                    <div class="wrapper5day"></div>
-                </div>
+                <div class="row wrapper5day"></div>
             </div>
         </div>
     </div>

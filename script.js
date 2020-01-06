@@ -4,7 +4,7 @@ var locationCurrent = "everywhere";
 var humidity = 0;
 var wind = 0;
 var UV = 0;
-var cityAry = ["Denver", "Des Moines", "Moscow"];
+var cityAry = [];
 var apiKey = "9bd07f7d4ce4fe8a1ea716aadf106115";
 var latCurrent = 0;
 var lonCurrent = 0;
@@ -93,14 +93,14 @@ function pullCityInfo() {
 function pop5Day () {
     $(".wrapper5day").empty();
     for(var i=0; i < temp5day.length; i++){
-        var colWrap = $("<div>").attr({"class": "col-md-2"});
-        var card = $("<div>").attr({"class": "card", "style":"width: 18rem;"});
+        var colWrap = $("<div>").attr({"class": "col-md"});
+        var card = $("<div>").attr({"class": "card"});
         var cardbody = $("<div>").attr({"class":"card-body"}); 
         var cardtitle = $("<h5>").attr({"class": "card-title"});
         var cardTemp = $("<p>").attr({'class': "card-text"});
         var cardHumidity = $("<p>").attr({'class': "card-text"});
         $(".wrapper5day").append(colWrap);
-        cardTemp.text("Temperature: " + temp5day[i] + " F");
+        cardTemp.text("Temp: " + temp5day[i] + " F");
         cardHumidity.text("Humidity: " + humidity5day[i] + " %");
         cardtitle.text(date5day[i]);
         colWrap.append(card);
