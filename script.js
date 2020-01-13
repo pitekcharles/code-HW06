@@ -55,6 +55,7 @@ function pullCityInfo() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
+        // console.log(response);
         temperature = ((response.main.temp) - 273.15) * 9 / 5 + 32;
         temperature = temperature.toFixed(2);
         humidity = response.main.humidity;
@@ -66,6 +67,7 @@ function pullCityInfo() {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
+            // console.log(response);
             UV = response.value;
             date = response.date_iso;
             var split = date.split("T");
@@ -76,6 +78,7 @@ function pullCityInfo() {
                 url: queryURL3,
                 method: "GET"
             }).then(function(response){
+                console.log(response);
                 for (var i = 0; i < 5; i++){
                     temp5day[i] =(((response.list[4+(i*8)].main.temp) - 273.15) * 9 / 5 + 32).toFixed(2);
                     var dateTemp = response.list[4+(i*8)].dt_txt;
