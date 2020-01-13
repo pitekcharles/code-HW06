@@ -61,7 +61,7 @@ function pullCityInfo() {
         wind = response.wind.speed;
         latCurrent = response.coord.lat;
         lonCurrent = response.coord.lon;
-        var queryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + latCurrent + "&lon=" + lonCurrent;
+        var queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + latCurrent + "&lon=" + lonCurrent;
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -71,7 +71,7 @@ function pullCityInfo() {
             var split = date.split("T");
             date = split[0];
             jumboPop();
-            var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&q=" + locationCurrent;
+            var queryURL3 = "https://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&q=" + locationCurrent;
             $.ajax({
                 url: queryURL3,
                 method: "GET"
